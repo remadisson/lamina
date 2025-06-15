@@ -1,4 +1,4 @@
-module subra
+module lamina
 
 go 1.24
 

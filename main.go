@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
+	"lamina/parser"
 	"os"
-	"subra/parser"
 )
 
 func main() {
