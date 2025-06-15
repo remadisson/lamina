@@ -1,0 +1,33 @@
+# 🛠 Go Build Artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# 📦 Go Module Caches (wenn du Module vendorst)
+vendor/
+
+# 📂 Lokale Konfigurationsdateien
+.env
+*.env
+*.local
+*.secret
+
+# 🧪 Test Output
+coverage.out
+
+# 🧱 Go Tools & Editor
+*.log
+*.swp
+*.swo
+
+# 🧠 IDE/Editor-Projekte (je nach Editor)
+.vscode/
+.idea/
+*.iml
+
+# 🍏 macOS
+.DS_Store
