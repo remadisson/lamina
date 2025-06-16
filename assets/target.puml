@@ -1,0 +1,63 @@
+@startuml
+!pragma layout smetana
+skinparam lineType polyline
+' === Flat Modern Styling ===
+skinparam backgroundColor #2A2B2C
+skinparam shadowing false
+skinparam componentStyle rectangle
+skinparam roundcorner 9
+
+' === Fonts & Lines ===
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 14
+skinparam defaultTextAlignment center
+skinparam DefaultFontColor #E0E0E0
+skinparam dpi 150
+
+' === Rectangle Style ===
+skinparam rectangle {
+    FontColor #E0E0E0
+    BackgroundColor #2B2D31
+    BorderColor #4E5056
+    BorderThickness 1
+}
+
+' === Component Style ===
+skinparam component {
+    FontColor #E0E0E0
+    BackgroundColor #2B2D31
+    BorderColor #4E5056
+    BorderThickness 1
+}
+
+' === Node Style ===
+skinparam node {
+    FontColor #E0E0E0
+    BackgroundColor #2F3136
+    BorderColor #4E5056
+    BorderThickness 1
+}
+
+' === Arrow Style ===
+skinparam arrow {
+    Color #5E81AC
+    Thickness 2
+    FontColor #D8DEE9
+    FontSize 12
+}
+
+' === Relations ===
+skinparam linetype ortho
+
+' === Elements ===
+
+component "test\n10.0.0.0/16" as test{
+    component "test2\n10.1.0.0/16" as test2
+}
+node "raspberry-pi\n10.0.1.42" as rasp
+node "mein-rechner\n10.0.0.42" as meinrechner
+' === Relations ===
+
+rasp --> meinrechner
+
+@enduml
