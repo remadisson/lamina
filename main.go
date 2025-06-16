@@ -17,7 +17,7 @@ func main() {
 		panic(err)
 	}
 
-	var root = "\"root\""
+	var root = "root"
 	for _, entry := range cfg.Entries {
 		if entry.Zone != nil {
 			if (entry.Zone.Parent) == nil {
@@ -28,5 +28,11 @@ func main() {
 		if entry.Device != nil {
 			fmt.Printf("Device: %s (%s) -> Zone: %s\n", entry.Device.Name, entry.Device.IP, entry.Device.Zone)
 		}
+	}
+
+	puml := parser.GeneratePlantUML(cfg)
+	err = parser.WriteToFile("assets/network.puml", puml)
+	if err != nil {
+		panic(err)
 	}
 }
