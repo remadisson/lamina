@@ -31,3 +31,5 @@ coverage.out
 
 # 🍏 macOS
 .DS_Store
+
+*.puml
