@@ -16,12 +16,11 @@ type Entry struct {
 }
 
 type Zone struct {
-	Name        string    `"zone" @String`
-	CIDR        string    `"{" "cidr" "=" @String`
-	VLAN        int       `"vlan" "=" @Int`
-	Description string    `"description" "=" @String`
-	Parent      *string   `( "parent" "=" @String )?`
-	Children    *[]string `( "children" "=" "[" @String { "," @String } "]" )? "}"`
+	Name        string  `"zone" @String`
+	CIDR        string  `"{" "cidr" "=" @String`
+	VLAN        int     `"vlan" "=" @Int`
+	Description string  `"description" "=" @String`
+	Parent      *string `( "parent" "=" @String )? "}"`
 }
 
 func (z Zone) String() string {
@@ -29,12 +28,8 @@ func (z Zone) String() string {
 	if z.Parent != nil {
 		parent = *z.Parent
 	}
-	children := "<nil>"
-	if z.Children != nil {
-		children = fmt.Sprintf("%v", *z.Children)
-	}
-	return fmt.Sprintf("Zone{Name: %s, CIDR: %s, VLAN: %d, Description: %s, Parent: %s, Children: %s}",
-		z.Name, z.CIDR, z.VLAN, z.Description, parent, children)
+	return fmt.Sprintf("Zone{Name: %s, CIDR: %s, VLAN: %d, Description: %s, Parent: %s}",
+		z.Name, z.CIDR, z.VLAN, z.Description, parent)
 }
 
 type Device struct {

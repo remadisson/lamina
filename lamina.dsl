@@ -2,7 +2,6 @@ zone "test" {
   cidr = "10.0.0.0/16"
   vlan = 10
   description = "Test-Zone"
-  children = ["test2"]
 }
 
 zone "test2" {
@@ -12,7 +11,7 @@ zone "test2" {
   parent = "test"
 }
 
-device "mein-rechner" {
+device "maxtower" {
   ip = "10.0.0.42"
   mac = "AA:BB:CC:DD:EE:FF"
   zone = "test"
