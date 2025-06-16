@@ -8,8 +8,49 @@ import (
 
 func GeneratePlantUML(cfg *Config) string {
 	var sb strings.Builder
+
 	sb.WriteString("@startuml\n")
-	sb.WriteString("skinparam componentStyle rectangle\n")
+	content := `
+!pragma layout smetana
+skinparam lineType polyline
+skinparam linetype ortho
+
+skinparam backgroundColor #2A2B2C
+skinparam shadowing false
+skinparam componentStyle rectangle
+skinparam roundcorner 9
+
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 14
+skinparam defaultTextAlignment center
+skinparam DefaultFontColor #E0E0E0
+skinparam dpi 150
+skinparam rectangle {
+	FontColor #E0E0E0
+	BackgroundColor #2B2D31
+	BorderColor #4E5056
+	BorderThickness 1
+}
+skinparam component {
+	FontColor #E0E0E0
+	BackgroundColor #2B2D31
+	BorderColor #4E5056
+	BorderThickness 1
+}
+skinparam node {
+	FontColor #E0E0E0
+	BackgroundColor #2F3136
+	BorderColor #4E5056
+	BorderThickness 1
+}
+skinparam arrow {
+	Color #5E81AC
+	Thickness 2
+	FontColor #D8DEE9
+	FontSize 12
+}`
+
+	sb.WriteString(content + "\n")
 
 	// Zonen als Komponenten
 	for _, entry := range cfg.Entries {
@@ -30,7 +71,7 @@ func GeneratePlantUML(cfg *Config) string {
 		}
 	}
 
-	sb.WriteString("@enduml\n")
+	sb.WriteString("\n@enduml\n")
 	return sb.String()
 }
 
